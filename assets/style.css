@@ -5,7 +5,6 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    padding-top: 100px;
 }
 .glow-on-hover {
     width: 220px;
@@ -125,6 +124,42 @@
     font-style: italic;
 }
 body{
+    height: 100vh;
+    overflow: hidden;
     background: rgba(255, 105, 180, 0.171);
+    transition: .5s linear;
+}
+.score-board{
+    height: 300px;
+    overflow-y: auto;
+}
+.game-title{
+    text-align: center;
+    padding: 25px 0;
+}
+.game-title h1{
+    transition: .2s linear;
+    cursor: pointer;
+        font-weight: 900;
+        color: rgb(223, 55, 139);
+        
+        --x-offset: -0.0625em;
+        --y-offset: 0.0625em;
+        --stroke: 0.025em;
+        --background-color: white;
+        --stroke-color: lightblue;    
+        text-shadow: 
+          var(--x-offset)
+          var(--y-offset)
+          0px
+          var(--background-color), 
+          
+          calc( var(--x-offset) - var(--stroke) )
+          calc( var(--y-offset) + var(--stroke) )
+          0px
+          var(--stroke-color);
+}
+.game-title h1:hover{
+    letter-spacing: 2px;
 }
 
