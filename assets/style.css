@@ -4,6 +4,7 @@
 .game-wrapper{
     height: 100vh;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 .glow-on-hover {
@@ -162,4 +163,29 @@ body{
 .game-title h1:hover{
     letter-spacing: 2px;
 }
-
+@media screen and (max-width: 768px) {
+    .box{
+     height: 250px;
+     width: 100%;
+     margin-right: 20px;
+    }
+    input{
+        width: 80%;
+        margin-top: 40px;
+    }
+    .glow-on-hover{
+        width: 115px;
+    }
+    .button-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    body{
+        height: auto !important;
+        overflow: visible;
+    }
+    .game-wrapper{
+        height: auto !important;
+    }
+}
