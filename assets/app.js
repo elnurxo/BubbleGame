@@ -3,7 +3,9 @@ let endGameBtn = document.querySelector(".end-game");
 let fullNameInput = document.querySelector(".full-name");
 let scoreBoardTable = document.querySelector("tbody");
 let box = document.querySelector('.box');
+let currentPlayerScore = document.querySelector(".playerCurrentScore");
 
+let EasyPlayerScore = 0;
 
 fullNameInput.addEventListener("keyup",function(){
     if (this.value=="") {
@@ -19,11 +21,19 @@ fullNameInput.addEventListener("keyup",function(){
 startGameBtn.addEventListener("click",function(){
     this.setAttribute('disabled','disabled');
 
-    CreatePlayer();
+    var score =  CreatePlayer();
 
-    setInterval(() => {
+    let StartGame =  setInterval(() => {
         CreateBubble();
-      }, 1500);
+      }, 1000);
+
+    endGameBtn.addEventListener("click",function(){
+        score.textContent = currentPlayerScore.textContent;
+        currentPlayerScore.textContent = "";
+        clearInterval(StartGame);
+        fullNameInput.value = "";
+        box.children.classList.remove('bubble');
+    });
 
 });
 
@@ -41,6 +51,8 @@ function CreatePlayer(){
     let playerRow = document.createElement('tr');
     playerRow.append(playerNo,playerName,playerScore);
     scoreBoardTable.append(playerRow);
+
+    return playerScore;
 }
 
 function CreateBubble(){
@@ -59,6 +71,7 @@ function CreateBubble(){
 
     bubble.addEventListener("click",function(){
         bubble.remove();
-        playerScore.textContent += 50;
+        EasyPlayerScore += 10;
+        currentPlayerScore.textContent = EasyPlayerScore;
     })
 }
